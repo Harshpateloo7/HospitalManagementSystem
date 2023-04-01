@@ -195,10 +195,15 @@
     <Compile Include="Migrations\202303291752013_UserFavoriteColor.designer.cs">
       <DependentUpon>202303291752013_UserFavoriteColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304011718342_patients.cs" />
+    <Compile Include="Migrations\202304011718342_patients.designer.cs">
+      <DependentUpon>202304011718342_patients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -281,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202303291752013_UserFavoriteColor.resx">
       <DependentUpon>202303291752013_UserFavoriteColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304011718342_patients.resx">
+      <DependentUpon>202304011718342_patients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

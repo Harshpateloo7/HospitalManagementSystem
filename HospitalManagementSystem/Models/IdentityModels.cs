@@ -26,6 +26,9 @@ namespace HospitalManagementSystem.Models
         {
         }
 
+        //Add  an Patient entity into our system
+        public DbSet<Patient> Patients { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
