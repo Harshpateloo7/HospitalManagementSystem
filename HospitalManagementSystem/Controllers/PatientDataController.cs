@@ -135,7 +135,7 @@ namespace HospitalManagementSystem.Controllers
             db.Patients.Remove(patient);
             db.SaveChanges();
 
-            return Ok(Patient);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
