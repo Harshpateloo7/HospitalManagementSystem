@@ -1,0 +1,35 @@
+﻿@model HospitalManagementSystem.Models.PatientDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update a Patient Details</h2>
+<form action="/Patient/Update/@Model.PatientId" method="POST">
+    <div>
+        <input type="hidden" name="PatientId" value="@Model.PatientId"/>
+    </div>
+    <div>
+        <label>Name:</label>
+        <input type="text" name="PatientName" value="@Model.PatientName"/>
+    </div>
+    <div>
+        <label>Phone:</label>
+        <input type="number" name="PatientPhone" value="@Model.PatientPhone."/>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="email" name="PatientEmail" value="@Model.PatientEmail"/>
+    </div>
+    <div>
+        <label>Prescription:</label>
+        <input type="text" name="PatientPrescription" value="@Model.PatientPrescription"/>
+    </div>
+    <div>
+        <label>Address:</label>
+        <input type="text" name="PatientAddress" value="@Model.PatientAddress"/>
+    </div>
+    <div>
+        <input type="submit" value="Update Patient Details"/>
+    </div>
+</form>
+
