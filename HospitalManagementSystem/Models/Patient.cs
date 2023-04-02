@@ -21,6 +21,19 @@ namespace HospitalManagementSystem.Models
 
         public string PatientAddress { get; set; }
 
+    }
+    public class PatientDto
+    {
+        public int PatientId { get; set; }
 
+        public string PatientName { get; set; }
+
+        public string PatientPrescription { get; set; }
+
+        public string PatientEmail { get; set; }
+
+        public string PatientPhone { get; set; }
+
+        public string PatientAddress { get; set; }
     }
 }
