@@ -1,0 +1,18 @@
+﻿@model HospitalManagementSystem.Models.PatientDto
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Delete a Patient</h2>
+<h2>Are you sure you want to delete this patient from the our system?</h2>
+<a href="/Patient/List">Cancel</a>
+<h2>@Model.PatientName</h2>
+<div>@Model.PatientPhone</div>
+<div>@Model.PatientEmail</div>
+<div>@Model.PatientPrescription</div>
+<div>@Model.PatientAddress</div>
+
+<form action="/Patient/Delete/@Model.PatientId" method="POST">
+    <input type="submit" value="Confirm Delete"/>
+</form>
+
