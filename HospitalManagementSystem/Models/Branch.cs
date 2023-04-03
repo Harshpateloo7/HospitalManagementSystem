@@ -19,4 +19,16 @@ namespace HospitalManagementSystem.Models
 
         public string BranchAddress { get; set; }
     }
+    public class BranchDto
+    {
+        public int BranchId { get; set; }
+
+        public string BranchName { get; set; }
+
+        public string BranchEmail { get; set; }
+
+        public string BranchPhone { get; set; }
+
+        public string BranchAddress { get; set; }
+    }
 }
