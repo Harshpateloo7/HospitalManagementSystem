@@ -122,6 +122,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // POST: api/PatientData/DeletePatient/5
+        //curl -d "" https://localhost:44313/api/PatientData/DeletePatient/5
         [ResponseType(typeof(Patient))]
         [HttpPost]
         public IHttpActionResult DeletePatient(int id)
