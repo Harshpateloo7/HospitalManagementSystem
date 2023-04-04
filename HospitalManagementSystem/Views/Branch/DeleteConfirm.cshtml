@@ -1,0 +1,15 @@
+﻿@model HospitalManagementSystem.Models.BranchDto
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>Delete a Branch</h2>
+<h2> Are you sure you want to delete this branch from the our system?</h2>
+<a href="/Branch/List">Cancel</a>
+<h2>@Model.BranchName</h2>
+<div>@Model.BranchEmail</div>
+<div>@Model.BranchPhone</div>
+<div>@Model.BranchAddress</div>
+<form action="/Branch/Delete/@Model.BranchId" method="POST">
+    <input type="submit" value="Confirm Delete" />
+</form>

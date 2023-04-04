@@ -36,7 +36,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // GET: api/BrancheData/FindBranch/5
-        //curl https://localhost:44313/api/BrancheData/FindBranch/2
+        //curl https://localhost:44313/api/BrancheData/FindBranch/{id}
         [ResponseType(typeof(Branch))]
         [HttpGet]
         public IHttpActionResult FindBranch(int id)
