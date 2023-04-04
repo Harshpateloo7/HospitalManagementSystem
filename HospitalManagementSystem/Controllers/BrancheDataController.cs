@@ -16,28 +16,52 @@ namespace HospitalManagementSystem.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/BrancheData
-        public IQueryable<Branch> GetBranches()
+        // GET: api/BrancheData/ListBranches
+        //curl https://localhost:44313/api/BrancheData/ListBranches
+        [HttpGet]
+        public IEnumerable<BranchDto> ListBranches()
         {
-            return db.Branches;
+            List<Branch> Branches = db.Branches.ToList();
+            List<BranchDto> BranchDtos  = new List<BranchDto>();
+
+            Branches.ForEach(b => BranchDtos.Add(new BranchDto()
+            {
+                BranchId = b.BranchId,
+                BranchName = b.BranchName,
+                BranchEmail = b.BranchEmail,
+                BranchPhone = b.BranchPhone,
+                BranchAddress = b.BranchAddress
+            }));
+            return BranchDtos;
         }
 
-        // GET: api/BrancheData/5
+        // GET: api/BrancheData/FindBranch/5
+        //curl https://localhost:44313/api/BrancheData/FindBranch/2
         [ResponseType(typeof(Branch))]
-        public IHttpActionResult GetBranch(int id)
+        [HttpGet]
+        public IHttpActionResult FindBranch(int id)
         {
-            Branch branch = db.Branches.Find(id);
-            if (branch == null)
+            Branch Branch = db.Branches.Find(id);
+            BranchDto BranchDto = new BranchDto()
+            {
+                BranchId = Branch.BranchId,
+                BranchName = Branch.BranchName,
+                BranchEmail = Branch.BranchEmail,
+                BranchPhone = Branch.BranchPhone,
+                BranchAddress = Branch.BranchAddress
+            };
+            if (Branch == null)
             {
                 return NotFound();
             }
 
-            return Ok(branch);
+            return Ok(BranchDto);
         }
 
-        // PUT: api/BrancheData/5
+        // POST: api/BrancheData/UpdateBranch/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutBranch(int id, Branch branch)
+        [HttpPost]
+        public IHttpActionResult UpdateBranch(int id, Branch branch)
         {
             if (!ModelState.IsValid)
             {
@@ -70,9 +94,11 @@ namespace HospitalManagementSystem.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/BrancheData
+        // POST: api/BrancheData/AddBranch
+        // curl -d @branch.json -H "Content-type:application/json" https://localhost:44313/api/BrancheData/AddBranch
         [ResponseType(typeof(Branch))]
-        public IHttpActionResult PostBranch(Branch branch)
+        [HttpPost]
+        public IHttpActionResult AddBranch(Branch branch)
         {
             if (!ModelState.IsValid)
             {
@@ -85,8 +111,10 @@ namespace HospitalManagementSystem.Controllers
             return CreatedAtRoute("DefaultApi", new { id = branch.BranchId }, branch);
         }
 
-        // DELETE: api/BrancheData/5
+        // POST: api/BrancheData/DeleteBranch/5
+        //curl -d "" https://localhost:44313/api/BrancheData/DeleteBranch/2
         [ResponseType(typeof(Branch))]
+        [HttpPost]
         public IHttpActionResult DeleteBranch(int id)
         {
             Branch branch = db.Branches.Find(id);
@@ -98,7 +126,7 @@ namespace HospitalManagementSystem.Controllers
             db.Branches.Remove(branch);
             db.SaveChanges();
 
-            return Ok(branch);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
