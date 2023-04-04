@@ -1,0 +1,14 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.BranchDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Branch</h2>
+@foreach(var branch in Model)
+{   
+    <h2><a href="/Branch/Details/@branch.BranchId">@branch.BranchName</a></h2>
+    <div>Email: @branch.BranchEmail</div>
+    <div>Phone: @branch.BranchPhone</div>
+    <div>Address: @branch.BranchAddress</div>
+}
+

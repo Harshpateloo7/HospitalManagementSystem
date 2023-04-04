@@ -1,0 +1,16 @@
+﻿@model HospitalManagementSystem.Models.BranchDto
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Details</h2>
+<a href="/Branch/List">Go back to Branch list</a>
+<br />
+<a href="/Branch/Edit/@Model.BranchId">Update Branch Details</a>
+<h2>@Model.BranchName</h2>
+<div>Email: @Model.BranchEmail</div>
+<div>Phone: @Model.BranchPhone</div>
+<div>Address: @Model.BranchAddress</div>
+<br />
+<a href="/Branch/DeleteConfirm/@Model.BranchId">Delete</a>
+
