@@ -1,6 +1,6 @@
 # HospitalManagementSystem
 #Teams: 
-- Harshadkumar Patel: Entity: Patient, and Branch
+- Harshadkumar Patel: Patient, and Branch
 - Jigar Mehta:
 - Nency Modi:
 - Darshan Varma:
