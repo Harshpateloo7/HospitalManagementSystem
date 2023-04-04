@@ -134,10 +134,10 @@ namespace HospitalManagementSystem.Controllers
 
         }
 
-        // GET: Patient/Delete/5
+        // GET: Patient/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "DeletePatient" + id;
+            string url = "FindPatient/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             PatientDto selectedpatient = response.Content?.ReadAsAsync<PatientDto>().Result;
             return View(selectedpatient);
@@ -147,10 +147,11 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            string url = "DeletePatient" + id;
+            string url = "DeletePatient/" + id;
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = client.PostAsync(url, content).Result;
+            
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("List");
