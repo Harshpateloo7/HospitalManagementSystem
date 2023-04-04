@@ -59,6 +59,7 @@ namespace HospitalManagementSystem.Controllers
         }
 
         // POST: api/BrancheData/UpdateBranch/5
+        //curl -d @branch.json -H "Content-type:application/json" "https://localhost:44313/api/BrancheData/UpdateBranch/3"
         [ResponseType(typeof(void))]
         [HttpPost]
         public IHttpActionResult UpdateBranch(int id, Branch branch)
