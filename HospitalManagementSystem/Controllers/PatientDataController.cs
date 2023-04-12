@@ -41,7 +41,39 @@ namespace HospitalManagementSystem.Controllers
                 PatientEmail= p.PatientEmail,
                 PatientPhone= p.PatientPhone,
                 PatientPrescription = p.PatientPrescription,
-                PatientAddress = p.PatientAddress
+                PatientAddress = p.PatientAddress,
+                BranchName = p.Branch.BranchName
+            }));
+            return PatientDtos;
+        }
+
+
+        /// <summary>
+        /// Gathers information about Patient related to a particular Branch Id
+        /// </summary>
+        /// <returns>
+        /// Header: 200 (ok)
+        /// Content: All Patient in the database
+        /// </returns>
+        /// <param name="id">Branch Id</param>
+        /// <example>
+        /// GET: api/PatientData/ListPatientsForBranch/3
+        /// </example>
+        [HttpGet]
+        public IEnumerable<PatientDto> ListPatientsForBranch(int id)
+        {
+            List<Patient> Patients = db.Patients.Where(p=>p.BranchId==id).ToList();
+            List<PatientDto> PatientDtos = new List<PatientDto>();
+
+            Patients.ForEach(p => PatientDtos.Add(new PatientDto()
+            {
+                PatientId = p.PatientId,
+                PatientName = p.PatientName,
+                PatientEmail = p.PatientEmail,
+                PatientPhone = p.PatientPhone,
+                PatientPrescription = p.PatientPrescription,
+                PatientAddress = p.PatientAddress,
+                BranchName = p.Branch.BranchName
             }));
             return PatientDtos;
         }
@@ -59,7 +91,8 @@ namespace HospitalManagementSystem.Controllers
                 PatientEmail = Patient.PatientEmail,
                 PatientPhone = Patient.PatientPhone,
                 PatientPrescription = Patient.PatientPrescription,
-                PatientAddress = Patient.PatientAddress
+                PatientAddress = Patient.PatientAddress,
+                BranchName = Patient.Branch.BranchName
             };
             if (Patient == null)
             {

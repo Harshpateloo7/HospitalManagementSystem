@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<HospitalManagementSystem.Models.BranchDto>
 @{
     ViewBag.Title = "Create";
 }
@@ -24,6 +24,16 @@
     <div>
         <label>Address:</label>
         <input type="text" name="PatientAddress" />
+    </div>
+    <div>
+        <label>Branch Id:</label>
+        <select name="BranchId">
+            @foreach (var branch in Model)
+            {
+               <option value="@branch.BranchId"> @branch.BranchName</option>
+               
+            }
+        </select>
     </div>
     <div>
         <input type="submit" value="Add a new Patient" />
