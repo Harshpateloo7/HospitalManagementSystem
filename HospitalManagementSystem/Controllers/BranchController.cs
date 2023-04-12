@@ -1,5 +1,4 @@
-﻿using HospitalManagementSystem.Models;
-using Microsoft.Ajax.Utilities;
+﻿using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +6,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Models.ViewModels;
 using System.Web.Script.Serialization;
 
 namespace HospitalManagementSystem.Controllers
@@ -18,7 +19,7 @@ namespace HospitalManagementSystem.Controllers
         static BranchController()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44313/api/BrancheData/");
+            client.BaseAddress = new Uri("https://localhost:44313/api/");
         }
         // GET: Branch/List
         public ActionResult List()
@@ -26,7 +27,7 @@ namespace HospitalManagementSystem.Controllers
             //objective: communicate with our branch data api to retrive a list of branches
             //curl https://localhost:44313/api/BrancheData/ListBranches
 
-            string url = "ListBranches";
+            string url = "BrancheData/ListBranches";
             HttpResponseMessage response = client.GetAsync(url).Result;
 
             Debug.WriteLine("The response code is ");
@@ -44,15 +45,26 @@ namespace HospitalManagementSystem.Controllers
         {
             //objective: communicate with our branch data api to reterive one branch
             //curl https://localhost:44313/api/BrancheData/FindBranch/{id} 
+            DetailsBranch ViewModel = new DetailsBranch();
 
-            string url = "FindBranch/" + id;
+            string url = "BrancheData/FindBranch/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
 
-            BranchDto selectedbranch = response.Content.ReadAsAsync<BranchDto>().Result;
+            BranchDto SelectedBranch = response.Content.ReadAsAsync<BranchDto>().Result;
             Debug.WriteLine("branch receievd: ");
-            Debug.WriteLine(selectedbranch.BranchName);
+            Debug.WriteLine(SelectedBranch.BranchName);
 
-            return View(selectedbranch);
+            ViewModel.SelectedBranch = SelectedBranch;
+            //Showcase information about Patient related to this Branch
+            // Send a request to gather information about Patient related to particular Branch Id
+            url = "PatientData/ListPatientsForBranch/" + id;
+            response = client.GetAsync(url).Result;
+            IEnumerable<PatientDto> RelatedPatients = response.Content.ReadAsAsync<IEnumerable<PatientDto>>().Result;
+
+            ViewModel.RelatedPatients = RelatedPatients;
+
+
+            return View(ViewModel);
         }
         public ActionResult Error()
         {
@@ -76,7 +88,7 @@ namespace HospitalManagementSystem.Controllers
             //objective: add a new branch into our system using the API
             //curl -H "Content-type:application/json" -d @branch.json https://localhoast:44313/api/BranchData/AddBranch
 
-            string url = "AddBranch";
+            string url = "BrancheData/AddBranch";
             
            
             string jsonpayload = jss.Serialize(branch);
@@ -101,7 +113,7 @@ namespace HospitalManagementSystem.Controllers
         public ActionResult Edit(int id)
         {
             // the existing Branch Information
-            string url = "FindBranch/" + id;
+            string url = "BrancheData/FindBranch/" + id;
 
             HttpResponseMessage response = client.GetAsync(url).Result;
             BranchDto selectedbranch = response.Content.ReadAsAsync<BranchDto>().Result;
@@ -112,7 +124,7 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost]
         public ActionResult Update(int id, Branch branch)
         {
-            string url = "UpdateBranch/" + id;
+            string url = "BrancheData/UpdateBranch/" + id;
             string jsonpayload = jss.Serialize(branch);
             HttpContent content = new StringContent(jsonpayload);
 
@@ -132,7 +144,7 @@ namespace HospitalManagementSystem.Controllers
         // GET: Branch/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "FindBranch/" + id;
+            string url = "BrancheData/FindBranch/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             BranchDto selectedbranch = response.Content.ReadAsAsync<BranchDto>().Result;
             return View(selectedbranch);
@@ -142,7 +154,7 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            string url = "DeleteBranch/" + id;
+            string url = "BrancheData/DeleteBranch/" + id;
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json"; 
             HttpResponseMessage response = client.PostAsync(url,content).Result;

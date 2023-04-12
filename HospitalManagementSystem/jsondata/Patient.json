@@ -1,8 +1,9 @@
 ﻿{
-  "PatientId": 3, 
+  "PatientId": 3,
   "PatientName": "George",
   "PatientPrescription": "B12, D3,D3",
   "PatientEmail": "george@gmail.com",
   "PatientPhone": "5266394563",
-  "PatientAddress": "Toronto"
+  "PatientAddress": "Toronto",
+  "BranchId": 3
 }

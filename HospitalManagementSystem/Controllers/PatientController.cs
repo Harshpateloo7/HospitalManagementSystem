@@ -1,4 +1,5 @@
 ﻿using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +19,7 @@ namespace HospitalManagementSystem.Controllers
         static PatientController()
         {
             client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44313/api/PatientData/");
+            client.BaseAddress = new Uri("https://localhost:44313/api/");
         }
         // GET: Patient/List
         public ActionResult List()
@@ -26,7 +27,7 @@ namespace HospitalManagementSystem.Controllers
             //objective: communicate with our patient data api to retrieve a list of patients
             //curl https://localhost:44313/api/PatientData/ListPatients
           
-            string url = "ListPatients";
+            string url = "PatientData/ListPatients";
             HttpResponseMessage response = client.GetAsync(url).Result;
            // Debug.WriteLine(" The response code is ");
             //Debug.WriteLine(response.StatusCode);
@@ -45,7 +46,7 @@ namespace HospitalManagementSystem.Controllers
             // curl https://localhost:44313/api/PatientData/FindPatient/{id}
 
 
-            string url = "FindPatient/" + id;
+            string url = "PatientData/FindPatient/" + id;
 
             HttpResponseMessage response = client.GetAsync(url).Result;
 
@@ -69,7 +70,13 @@ namespace HospitalManagementSystem.Controllers
         // GET: Patient/New
         public ActionResult New()
         {
-            return View();
+            // information about all branch in the system
+            // GET: api/BrancheData/ListBranches
+
+            string url = "BrancheData/ListBranches";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            IEnumerable<BranchDto> branchesOptions = response.Content.ReadAsAsync<IEnumerable<BranchDto>>().Result;
+            return View(branchesOptions);
         }
 
         // POST: Patient/Create
@@ -79,7 +86,7 @@ namespace HospitalManagementSystem.Controllers
             Debug.WriteLine("The json payload is : ");
             //objective: add a new patient into our system using the API
             //curl -H "Content-type:application/json" -d @Patient.json  https://localhost:44313/api/PatientData/AddPatient
-            string url = "AddPatient";
+            string url = "PatientData/AddPatient";
 
             
             string jsonpayload = jss.Serialize(patient);
@@ -105,18 +112,28 @@ namespace HospitalManagementSystem.Controllers
         // GET: Patient/Edit/5
         public ActionResult Edit(int id)
         {
+            UpdatePatient ViewModel = new UpdatePatient();
             // the existing Patient information
-            string url = "FindPatient/" + id;
+            string url = "PatientData/FindPatient/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
-            PatientDto selectedpatient = response.Content.ReadAsAsync<PatientDto>().Result;
-            return View(selectedpatient);
+            PatientDto SelectedPatient = response.Content.ReadAsAsync<PatientDto>().Result;
+            ViewModel.SelectedPatient = SelectedPatient;
+
+            //All branch to choose from when updating this Patient
+            url = "BrancheData/ListBranches/";
+            response = client.GetAsync(url).Result;
+            IEnumerable<BranchDto> BranchOptions = response.Content.ReadAsAsync<IEnumerable<BranchDto>>().Result;
+
+            ViewModel.BranchOptions = BranchOptions;
+
+            return View(ViewModel);
         }
 
         // POST: Patient/Update/5
         [HttpPost]
         public ActionResult Update(int id, Patient patient)
         {
-            string url = "UpdatePatient/" + id;
+            string url = "PatientData/UpdatePatient/" + id;
             string jsonpayload = jss.Serialize(patient);
             HttpContent content = new StringContent(jsonpayload);
 
@@ -134,10 +151,10 @@ namespace HospitalManagementSystem.Controllers
 
         }
 
-        // GET: Patient/DeleteConfirm/5
+        // GET: Patient/Delete/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "FindPatient/" + id;
+            string url = "PatientData/FindPatient/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
             PatientDto selectedpatient = response.Content?.ReadAsAsync<PatientDto>().Result;
             return View(selectedpatient);
@@ -147,11 +164,12 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            string url = "DeletePatient/" + id;
+            string url = "PatientData/DeletePatient/" + id;
             HttpContent content = new StringContent("");
             content.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = client.PostAsync(url, content).Result;
             
+
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("List");

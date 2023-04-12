@@ -1,4 +1,4 @@
-﻿@model HospitalManagementSystem.Models.BranchDto
+﻿@model HospitalManagementSystem.Models.ViewModels.DetailsBranch
 @{
     ViewBag.Title = "View";
 }
@@ -6,11 +6,18 @@
 <h2>Details</h2>
 <a href="/Branch/List">Go back to Branch list</a>
 <br />
-<a href="/Branch/Edit/@Model.BranchId">Update Branch Details</a>
-<h2>@Model.BranchName</h2>
-<div>Email: @Model.BranchEmail</div>
-<div>Phone: @Model.BranchPhone</div>
-<div>Address: @Model.BranchAddress</div>
+<a href="/Branch/Edit/@Model.SelectedBranch.BranchId">Update Branch Details</a>
+<h2>@Model.SelectedBranch.BranchName</h2>
+<div>Email: @Model.SelectedBranch.BranchEmail</div>
+<div>Phone: @Model.SelectedBranch.BranchPhone</div>
+<div>Address: @Model.SelectedBranch.BranchAddress</div>
 <br />
-<a href="/Branch/DeleteConfirm/@Model.BranchId">Delete</a>
+<a href="/Branch/DeleteConfirm/@Model.SelectedBranch.BranchId">Delete</a>
+<div style="margin-top:100px;">
+    <h3>Patients related to this Branch</h3>
+    @foreach(var patient in Model.RelatedPatients)
+    {
+        <a href="/Patient/Details/@patient.PatientId">@patient.PatientName</a>
+    }
 
+</div>
