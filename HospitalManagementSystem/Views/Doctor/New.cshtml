@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.ParkingDto>
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Create Doctor</h2>
+
+<a href="/Doctor/List">Go back to list</a>
+
+<form action="/Doctor/Create" method="POST">
+    <div>
+        <label>Doctor Name:</label> <input type="text" name="DoctorName" />
+    </div>
+    <div>
+        <label>Doctor Description:</label> <input type="text" name="DoctorDescription" />
+    </div>
+    <div>
+        <label>Parkings:</label>
+        <select name="ParkingId">
+            @foreach (var parkings in Model)
+            {
+                <option value="@parkings.ParkingId">@parkings.ParkingPosition</option>
+
+            }
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Add Doctor" />
+
+    </div>
+</form>
+

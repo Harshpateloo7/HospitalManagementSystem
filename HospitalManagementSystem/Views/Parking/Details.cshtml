@@ -1,0 +1,35 @@
+﻿@model HospitalManagementSystem.Models.ViewModels.ParkingDetails
+
+<a href="/Parking/List">Go back to list</a>
+<li><a href="/Parking/Edit/@Model.Parking.ParkingId">Update</a></li>
+<li><a style="color:#ab2020;" href="/Parking/DeleteConfirm/@Model.Parking.ParkingId">Delete</a></li>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Parking @Model.Parking.ParkingPosition</h2>
+
+
+
+
+<div class="row">
+    <div>
+
+        <div>Parking Wing: @Model.Parking.ParkingWing</div>
+    </div>
+    <div>
+        <h3>Doctors associated with Parking @(Model.Parking.ParkingPosition)</h3>
+        <ul>
+
+            @foreach (var doctor in Model.RelatedDoctors)
+            {
+                <li>
+                    <a href="/Doctor/Details/@doctor.DoctorId">@doctor.DoctorName</a>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+

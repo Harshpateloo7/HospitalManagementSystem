@@ -1,0 +1,14 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.MedicineDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Medicines</h2>
+<a href="/Medicine/New">New Medicine</a>
+@foreach (var Medicine in Model)
+{
+    <h3>Medicine Name:<a href="/Medicine/Details/@Medicine.MedicineId">@Medicine.MedicineName</a></h3>
+    <div>Dose per Day: @Medicine.DosePerDay</div>
+}
+

@@ -218,8 +218,14 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BranchController.cs" />
     <Compile Include="Controllers\BrancheDataController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\DoctorDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MedicineController.cs" />
+    <Compile Include="Controllers\MedicineDataController.cs" />
+    <Compile Include="Controllers\ParkingController.cs" />
+    <Compile Include="Controllers\ParkingDataController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\PatientDataController.cs" />
     <Compile Include="Global.asax.cs">
@@ -245,13 +251,40 @@
     <Compile Include="Migrations\202304111849210_patient-branch.designer.cs">
       <DependentUpon>202304111849210_patient-branch.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304181201480_hospital.cs" />
+    <Compile Include="Migrations\202304181201480_hospital.designer.cs">
+      <DependentUpon>202304181201480_hospital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304181228559_doctors.cs" />
+    <Compile Include="Migrations\202304181228559_doctors.designer.cs">
+      <DependentUpon>202304181228559_doctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304181241239_doctor-parking.cs" />
+    <Compile Include="Migrations\202304181241239_doctor-parking.designer.cs">
+      <DependentUpon>202304181241239_doctor-parking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304181251575_medicines-doctors.cs" />
+    <Compile Include="Migrations\202304181251575_medicines-doctors.designer.cs">
+      <DependentUpon>202304181251575_medicines-doctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304190437468_columnChange.cs" />
+    <Compile Include="Migrations\202304190437468_columnChange.designer.cs">
+      <DependentUpon>202304190437468_columnChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Branch.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Medicine.cs" />
+    <Compile Include="Models\Parking.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\ViewModels\DetailsBranch.cs" />
+    <Compile Include="Models\ViewModels\DoctorDetails.cs" />
+    <Compile Include="Models\ViewModels\MedicineDetails.cs" />
+    <Compile Include="Models\ViewModels\ParkingDetails.cs" />
+    <Compile Include="Models\ViewModels\UpdateDoctor.cs" />
     <Compile Include="Models\ViewModels\UpdatePatient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -326,9 +359,28 @@
     <Content Include="Views\Branch\Error.cshtml" />
     <Content Include="Views\Branch\Edit.cshtml" />
     <Content Include="Views\Branch\DeleteConfirm.cshtml" />
+    <Content Include="Views\Doctor\List.cshtml" />
+    <Content Include="Views\Doctor\New.cshtml" />
+    <Content Include="Views\Doctor\DeleteConfirm.cshtml" />
+    <Content Include="Views\Doctor\Error.cshtml" />
+    <Content Include="Views\Doctor\Edit.cshtml" />
+    <Content Include="Views\Doctor\Details.cshtml" />
+    <Content Include="Views\Parking\DeleteConfirm.cshtml" />
+    <Content Include="Views\Parking\Details.cshtml" />
+    <Content Include="Views\Parking\Edit.cshtml" />
+    <Content Include="Views\Parking\Error.cshtml" />
+    <Content Include="Views\Parking\List.cshtml" />
+    <Content Include="Views\Parking\New.cshtml" />
+    <Content Include="Views\Medicine\DeleteConfirm.cshtml" />
+    <Content Include="Views\Medicine\Details.cshtml" />
+    <Content Include="Views\Medicine\Edit.cshtml" />
+    <Content Include="Views\Medicine\Error.cshtml" />
+    <Content Include="Views\Medicine\List.cshtml" />
+    <Content Include="Views\Medicine\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Prescription\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -358,6 +410,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304111849210_patient-branch.resx">
       <DependentUpon>202304111849210_patient-branch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304181201480_hospital.resx">
+      <DependentUpon>202304181201480_hospital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304181228559_doctors.resx">
+      <DependentUpon>202304181228559_doctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304181241239_doctor-parking.resx">
+      <DependentUpon>202304181241239_doctor-parking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304181251575_medicines-doctors.resx">
+      <DependentUpon>202304181251575_medicines-doctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304190437468_columnChange.resx">
+      <DependentUpon>202304190437468_columnChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
