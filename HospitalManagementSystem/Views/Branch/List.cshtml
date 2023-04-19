@@ -4,11 +4,50 @@
 }
 
 <h2>List of Branch</h2>
-@foreach(var branch in Model)
-{   
-    <h2><a href="/Branch/Details/@branch.BranchId">@branch.BranchName</a></h2>
-    <div>Email: @branch.BranchEmail</div>
-    <div>Phone: @branch.BranchPhone</div>
-    <div>Address: @branch.BranchAddress</div>
-}
+<a href="/Branch/New" class="add-newBranch">Add New Branch</a>
+<div class="branch-container">
+    @foreach (var branch in Model)
+    {   
+        <div class="branchdetail-container">
+            <h2><a href="/Branch/Details/@branch.BranchId" class="branchName">@branch.BranchName</a></h2>
+            <div class="branchEmail">Email: @branch.BranchEmail</div>
+            <div class="branchPhone">Phone: @branch.BranchPhone</div>
+            <div class="branchAddress">Address: @branch.BranchAddress</div>
+        </div>
+    }
+</div>
 
+<style>
+    .branch-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+    }
+    .branchdetail-container {
+        background-color: #eaeae8;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .branchdetail-container h2 {
+        margin-top: 0;
+    }
+    .branchName a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .branchEmail,.branchPhone,.branchAddress{
+        margin-bottom: 10px;
+    }
+    .add-newBranch {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+</style>

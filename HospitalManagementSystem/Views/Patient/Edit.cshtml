@@ -4,31 +4,32 @@
 }
 
 <h2>Update a Patient Details</h2>
-<form action="/Patient/Update/@Model.SelectedPatient.PatientId" method="POST">
-    <div>
+<a href="/Patient/List" class="go-Back-List">Go back to list</a>
+<form action="/Patient/Update/@Model.SelectedPatient.PatientId" class="patient-edit-from" method="POST">
+    <div class="patientId">
         <input type="hidden" name="PatientId" value="@Model.SelectedPatient.PatientId"/>
     </div>
-    <div>
+    <div class="patientName">
         <label>Name:</label>
         <input type="text" name="PatientName" value="@Model.SelectedPatient.PatientName"/>
     </div>
-    <div>
+    <div class="patientPhone">
         <label>Phone:</label>
         <input type="number" name="PatientPhone" value="@Model.SelectedPatient.PatientPhone."/>
     </div>
-    <div>
+    <div class="patientEmail">
         <label>Email:</label>
         <input type="email" name="PatientEmail" value="@Model.SelectedPatient.PatientEmail"/>
     </div>
-    <div>
+    <div class="patientDescription">
         <label>Prescription:</label>
         <input type="text" name="PatientPrescription" value="@Model.SelectedPatient.PatientPrescription"/>
     </div>
-    <div>
+    <div class="patientAddress">
         <label>Address:</label>
         <input type="text" name="PatientAddress" value="@Model.SelectedPatient.PatientAddress"/>
     </div>
-    <div>
+    <div class="patientSeletct">
         <label>Branch Id:</label>
         <select name="BranchId">
             @foreach (var branch in Model.BranchOptions)
@@ -39,8 +40,38 @@
         </select>
 
     </div>
-    <div>
+    <div class="patientSubmit">
         <input type="submit" value="Update Patient Details"/>
     </div>
 </form>
+
+<style>
+    .go-Back-List {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    form.patient-edit-from {
+        display: table-caption;
+        padding: 25px;
+        background-color: #eaeae8;
+    }
+    input[type="text"] {
+        height: 27px;
+        width: 179px;
+    }
+    input[type="submit"] {
+        margin-top: 14px;
+        width: 183px;
+        height: 33px;
+        background-color: #007bff;
+        color: #fff;
+    }
+
+</style>
 
