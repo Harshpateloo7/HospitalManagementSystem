@@ -1,0 +1,29 @@
+﻿@model HospitalManagementSystem.Models.ViewModels.MedicineDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Medicine.MedicineName, @Model.Medicine.DosePerDay</h2>
+<nav>
+    <ul>
+        <li><a href="/Medicine/List">Go back to list</a></li>
+        <li><a href="/Medicine/Edit/@Model.Medicine.MedicineId">Update</a></li>
+        <li><a style="color:#ab2020;" href="/Medicine/DeleteConfirm/@Model.Medicine.MedicineId">Delete</a></li>
+    </ul>
+</nav>
+<div class="row">
+    <div>
+        <div>Medicine Name: @Model.Medicine.MedicineName</div>
+        <div>Dose Per Day: @Model.Medicine.DosePerDay</div>
+    </div>
+    <div>
+        <h4>Prescribed by Doctor:</h4>
+        @foreach (var doctor in Model.PrescibedByDoctors)
+        {
+            <a href="/doctor/Details/@doctor.DoctorId">@doctor.DoctorName</a><br />
+
+        }
+    </div>
+</div>
+

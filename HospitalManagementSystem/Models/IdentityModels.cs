@@ -29,6 +29,14 @@ namespace HospitalManagementSystem.Models
         //Add  an Patient entity into our system
         public DbSet<Patient> Patients { get; set; }
 
+
+        public DbSet<Doctor> Doctors { get; set; }
+
+        public DbSet<Parking> Parkings { get; set; }
+
+        public System.Data.Entity.DbSet<HospitalManagementSystem.Models.Medicine> Medicines { get; set; }
+
+
         // Add an Branch entity into our system
 
         public DbSet<Branch> Branches { get; set; }

@@ -1,0 +1,28 @@
+﻿@model HospitalManagementSystem.Models.ParkingDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<li><a href="/Parking/List">Go back to list</a></li>
+<li><a style="color:#ab2020;" href="/Parking/DeleteConfirm/@Model.ParkingId">Delete</a></li>
+
+
+<h2>Update Parking</h2>
+<form action="/Parking/Update/@Model.ParkingId" method="POST">
+    <div style="display:none;">
+        <input type="text" name="ParkingId" value="@Model.ParkingId" />
+    </div>
+    <div>
+        <label>Parking Position:</label> <input type="text" name="ParkingPosition" value="@Model.ParkingPosition" />
+    </div>
+    <div>
+        <div>
+            <label>Parking Wing:</label> <input type="text" name="ParkingWing" value="@Model.ParkingWing" />
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Update Parking" />
+
+    </div>
+</form>

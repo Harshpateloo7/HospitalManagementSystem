@@ -1,0 +1,46 @@
+﻿@model HospitalManagementSystem.Models.ViewModels.UpdateDoctor
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Doctor</h2>
+<nav>
+    <ul>
+        <li><a href="/Doctor/List">Go back to list</a></li>
+
+        <li><a style="color:#ab2020;" href="/Doctor/DeleteConfirm/@Model.Doctor.DoctorId">Delete</a></li>
+    </ul>
+</nav>
+<form action="/Doctor/Update/@Model.Doctor.DoctorId" method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div style="display:none;">
+                @* Pass through the Doctor ID *@
+                <input type="text" name="DoctorId" value="@Model.Doctor.DoctorId" />
+            </div>
+            <div>
+                <label>Name:</label> <input type="text" name="DoctorName" value="@Model.Doctor.DoctorName" />
+            </div>
+            <div>
+                <label>Description :</label> <input type="text" name="DoctorDescription" value="@Model.Doctor.DoctorDescription" />
+            </div>
+            <div>
+                <label>Parking:</label>
+                <select name="ParkingId">
+                    @foreach (var parkings in Model.Parking)
+                    {
+                        <option value="@parkings.ParkingId">@parkings.ParkingPosition</option>
+
+                    }
+                </select>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <input type="submit" value="Update Doctor" />
+
+    </div>
+
+</form>

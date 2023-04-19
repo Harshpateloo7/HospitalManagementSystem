@@ -1,0 +1,28 @@
+﻿@model HospitalManagementSystem.Models.MedicineDto
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<li><a href="/Medicine/List">Go back to list</a></li>
+<li><a style="color:#ab2020;" href="/Medicine/DeleteConfirm/@Model.MedicineId">Delete</a></li>
+
+
+<h2>Update Medicine</h2>
+<form action="/Medicine/Update/@Model.MedicineId" method="POST">
+    <div style="display:none;">
+        <input type="text" name="MedicineId" value="@Model.MedicineId" />
+    </div>
+    <div>
+        <label>Medicine Name:</label> <input type="text" name="MedicineName" value="@Model.MedicineName" />
+    </div>
+    <div>
+        <label>Dose per day:</label> <input type="text" name="DosePerDay" value="@Model.DosePerDay" />
+    </div>
+
+    <div>
+        <input type="submit" value="Update Medicine" />
+
+    </div>
+</form>
+

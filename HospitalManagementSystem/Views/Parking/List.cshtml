@@ -1,0 +1,16 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.ParkingDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<div><a href="/Parking/New">New Parking</a></div>
+
+@foreach (var parking in Model)
+{
+    <h3>Parking Position:<a href="/Parking/Details/@parking.ParkingId">@parking.ParkingPosition</a></h3>
+    <div>Parking Wing: @parking.ParkingWing</div>
+
+
+}

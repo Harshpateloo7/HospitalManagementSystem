@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<a href="/Parking/List">Go back to list</a>
+
+<h2>Add Parking</h2>
+<form action="/Parking/Create" method="POST">
+    <div>
+        <label>Name:</label> <input type="text" name="ParkingPosition" />
+    </div>
+    <div>
+        <label>Description:</label>
+        <input type="Text" name="ParkingWing" />
+    </div>
+    <div>
+        <input type="submit" value="Add Parking" />
+
+    </div>
+</form>
+
+

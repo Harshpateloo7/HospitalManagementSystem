@@ -1,0 +1,43 @@
+﻿@model HospitalManagementSystem.Models.ViewModels.DoctorDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<nav>
+    <ul>
+        <a href="/Doctor/List">Go back to list</a>
+        <li><a href="/Doctor/Edit/@Model.Doctor.DoctorId">Update</a></li>
+        <li><a style="color:#ab2020;" href="/Doctor/DeleteConfirm/@Model.Doctor.DoctorId">Delete</a></li>
+    </ul>
+</nav>
+
+<h2>@Model.Doctor.DoctorName</h2>
+
+<div>Doctor Description: @Model.Doctor.DoctorDescription</div>
+
+<div>Parking Position: @Model.Doctor.ParkingPosition</div>
+
+<div>
+    <h4>Medicines by @Model.Doctor.DoctorName:</h4>
+    @foreach (var medicine in Model.Medicine)
+    {
+
+        <a href="/Medicine/Details/@medicine.MedicineId">@medicine.MedicineName, @medicine.DosePerDay</a> <a style="color:#ab2020;" href="/Doctor/Unassociate/@Model.Doctor.DoctorId?MedicineId=@medicine.MedicineId">[x]</a><br />
+    }
+</div>
+<div>
+
+    <form method="POST" action="/Doctor/Associate/@Model.Doctor.DoctorId">
+        <select name="MedicineId">
+            <option value="">Select Medicine</option>
+            @foreach (var Medicine in Model.OtherMedicines)
+            {
+                <option value="@Medicine.MedicineId">@Medicine.MedicineName, @Medicine.DosePerDay</option>
+            }
+
+        </select>
+        <input type="submit" value="Add Medicine" />
+    </form>
+</div>
+
