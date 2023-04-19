@@ -4,26 +4,99 @@
 }
 
 <h2>Create a new Branch</h2>
-<form action="/Branch/Create" method="POST">
-    <div>
-        <label>Branch Name:</label>
-        <input type="text" name="BranchName"/>
-    </div>
-    <div>
-        <label>Branch Email:</label>
-        <input type="email" name="BranchEmail" />
-    </div>
-    <div>
-        <label>Branch Phone:</label>
-        <input type="number" name="BranchPhone"/>
-    </div>
-    <div>
-        <label>Branch Address:</label>
-        <input type="text" name="BranchAddress"/>
-    </div>
-    <div>
-        <input type="submit" value="Add a new Branch" />
-    </div>
+<a href="/Branch/List" class="goBackList">Go back to Branch list</a>
+<div class="newBranch">
+    <form action="/Branch/Create" class="newBranchForm" method="POST">
+        <div class="label1">
+            <label>Branch Name:</label>
+            <input type="text" name="BranchName" />
+        </div>
+        <div class="label1">
+            <label>Branch Email:</label>
+            <input type="email" name="BranchEmail" />
+        </div>
+        <div class="label1">
+            <label>Branch Phone:</label>
+            <input type="number" name="BranchPhone" />
+        </div>
+        <div class="label1">
+            <label>Branch Address:</label>
+            <input type="text" name="BranchAddress" />
+        </div>
+        <div class="label1">
+            <input type="submit" value="Add a new Branch" />
+        </div>
 
-</form>
+    </form>
+</div>
+
+<style>
+    h2{
+        text-align:center;
+    }
+    .goBackList {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        position:center;
+        transition: background-color 0.3s ease;
+    }
+    .goBackList:hover{
+        background-color: #0056b3;
+        color: #fff;
+    }
+    .newBranch {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #eaeae8;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    /* Styles for form elements */
+    form {
+        padding: 81px;
+    }
+
+        form div {
+            margin-bottom: 10px;
+        }
+
+        /* Styles for labels */
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Styles for input fields */
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="email"],
+        form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Styles for submit button */
+        form input[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+
+</style>
 

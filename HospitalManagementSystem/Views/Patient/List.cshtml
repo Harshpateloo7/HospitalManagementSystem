@@ -3,13 +3,68 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
-@foreach(var patient in Model)
-{ 
-    <h2><a href="/Patient/Details/@patient.PatientId">Name: @patient.PatientName</a></h2>
-    <div>Phone: @patient.PatientPhone</div>
-    <div>Email: @patient.PatientEmail</div>
-    <div>Prescription Details: @patient.PatientPrescription</div>
-    <div>Address: @patient.PatientAddress</div>
-    <div>Branch: @patient.BranchName</div>
-}
+<h2 class="list-of-patient">List of Patient</h2>
+<a href="/Patient/New" class="patientnew">Add New Patient</a>
+<div class="patient-grid-container">
+    @foreach (var patient in Model)
+    {
+        <div class="patient-card">
+            <h2 class="patientName"><a href="/Patient/Details/@patient.PatientId">Name: @patient.PatientName</a></h2>
+            <div class="patientPhone">Phone: @patient.PatientPhone</div>
+            <div class="patientEmail">Email: @patient.PatientEmail</div>
+            <div class="patientDetail">Prescription Details: @patient.PatientPrescription</div>
+            <div class="patientAddress">Address: @patient.PatientAddress</div>
+            <div class="patientBranch">Branch: @patient.BranchName</div>
+        </div>
+    }
+</div>
+<style>
+    .patientnew {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom:10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .patientnew:hover {
+        background-color: #0056b3;
+        color:#ffff;
+    }
+
+    .patient-grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+    }
+
+    .patient-card {
+        background-color: #eaeae8;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .patient-card h2 {
+        margin-top: 0;
+    }
+
+    .patientName a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .patientPhone,
+    .patientEmail,
+    .patientDetail,
+    .patientAddress,
+    .patientBranch {
+        margin-bottom: 10px;
+    }
+
+
+
+</style>

@@ -4,28 +4,61 @@
 }
 
 <h2>Update a Branch Details</h2>
-<form action="/Branch/Update/@Model.BranchId" method="POST">
-    <div>
-        <input type="hidden" name="BranchId" value="@Model.BranchId"/>
+<a href="/Branch/List" class="goBackList">Go back to Branch list</a>
+<form action="/Branch/Update/@Model.BranchId" method="POST" class="edit-branch">
+    <div class="branchID">
+        <input type="hidden" name="BranchId" value="@Model.BranchId" />
     </div>
-    <div>
+    <div class="branchName">
         <label>Branch Name:</label>
-        <input type="text" name="BranchName" value="@Model.BranchName"/>
+        <input type="text" name="BranchName" value="@Model.BranchName" />
     </div>
-    <div>
+    <div class="branchEmail">
         <label>Branch Email:</label>
-        <input type="email" name="BranchEmail" value="@Model.BranchEmail"/>
+        <input type="email" name="BranchEmail" value="@Model.BranchEmail" />
     </div>
-    <div>
+    <div class="branchPhone">
         <label>Branch Phone:</label>
-        <input type="number" name="BranchPhone" value="@Model.BranchPhone"/>
+        <input type="number" name="BranchPhone" value="@Model.BranchPhone" />
     </div>
-    <div>
+    <div class="branchAddress">
         <label>Branch Address:</label>
-        <input type="text" name="BranchAddress" value="@Model.BranchAddress"/>
+        <input type="text" name="BranchAddress" value="@Model.BranchAddress" />
     </div>
-    <div>
-        <input type="submit" value="Update Branch Details"/>
+    <div class="updateDeatil">
+        <input type="submit" value="Update Branch Details" />
     </div>
 </form>
+
+<style>
+    .goBackList {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+
+    }
+
+    form.edit-branch {
+        display: table-caption;
+        padding: 25px;
+        background-color: #eaeae8;
+    }
+
+    input[type="text"] {
+        height: 27px;
+        width: 179px;
+    }
+
+    input[type="submit"] {
+        margin-top: 14px;
+        width: 183px;
+        height: 33px;
+        background-color: #007bff;
+        color: #fff;
+    }
+</style>
 
