@@ -1,0 +1,69 @@
+﻿@model HospitalManagementSystem.Models.ViewModels.UpdateBlog
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update a Blog Details</h2>
+<a href="/Blog/List" class="go-Back-List">Go back to list</a>
+<form action="/Blog/Update/@Model.SelectedBlog.BlogId" class="Blog-edit-from" method="POST">
+    <div class="BlogId">
+        <input type="hidden" name="BlogId" value="@Model.SelectedBlog.BlogId" />
+    </div>
+    <div class="BlogName">
+        <label>Title:</label>
+        <input type="text" name="Title" value="@Model.SelectedBlog.Title" />
+    </div>
+    <div>
+        <label>Posting Date:</label>
+        <input type="date" name="CreatedDate" value="@Model.SelectedBlog.CreatedDate"/>
+    </div>
+    <div class="BlogPhone">
+        <label>Content:</label>
+        <textarea id="Content" name="Content" rows="4" cols="50">@Model.SelectedBlog.Content</textarea>
+    </div>
+    <div class="BlogSeletct">
+        <label>Doctor Id:</label>
+        <select name="DoctorId">
+            @foreach (var Doctor in Model.DoctorOptions)
+            {
+                <option value="@Doctor.DoctorId"> @Doctor.DoctorName</option>
+
+            }
+        </select>
+
+    </div>
+    <div class="BlogSubmit">
+        <input type="submit" value="Update Blog Details" />
+    </div>
+</form>
+
+<style>
+    .go-Back-List {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    form.Blog-edit-from {
+        display: table-caption;
+        padding: 25px;
+        background-color: #eaeae8;
+    }
+    input[type="text"] {
+        height: 27px;
+        width: 179px;
+    }
+    input[type="submit"] {
+        margin-top: 14px;
+        width: 183px;
+        height: 33px;
+        background-color: #007bff;
+        color: #fff;
+    }
+
+</style>
+

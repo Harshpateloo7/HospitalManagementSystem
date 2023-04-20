@@ -32,6 +32,8 @@ namespace HospitalManagementSystem.Models
 
         public DbSet<Doctor> Doctors { get; set; }
 
+        public DbSet<Blog> Blog { get; set; }
+
         public DbSet<Parking> Parkings { get; set; }
         public DbSet<Specialist> Specialists { get; set; }
 

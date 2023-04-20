@@ -1,0 +1,68 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.BlogDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2 class="list-of-Blog">List of Blog</h2>
+<a href="/Blog/New" class="Blognew">Add New Blog</a>
+<div class="Blog-grid-container">
+    @foreach (var blog in Model)
+    {
+        <div class="Container">
+            <h2 class="BlogName"><a href="/Blog/Details/@blog.BlogId">Title: @blog.Title</a></h2>
+            <div class="BlogDate">Create Date: @blog.CreatedDate</div>
+            <div class="BlogContent">Content: @blog.Content</div>
+            <div class="Doctordetails">Doctorname: @blog.DoctorName</div>
+        </div>
+    }
+</div>
+<style>
+    .Blognew {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom:10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .Blognew:hover {
+        background-color: #0056b3;
+        color:#ffff;
+    }
+
+    .Blog-grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+    }
+
+    .Container {
+        background-color: #eaeae8;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .Container h2 {
+        margin-top: 0;
+    }
+
+    .BlogName a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .BlogDate,
+    .BlogContent,
+    .BlogDetail,
+    .BlogAddress,
+    .Doctordetails {
+        margin-bottom: 10px;
+    }
+
+
+
+</style>
