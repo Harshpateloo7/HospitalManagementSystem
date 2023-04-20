@@ -1,0 +1,64 @@
+﻿@model HospitalManagementSystem.Models.CareerDto
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update a Career Details</h2>
+<a href="/Career/List" class="goBackList">Go back to Career list</a>
+<form action="/Career/Update/@Model.CareerId" method="POST" class="edit-career">
+    <div class="careerID">
+        <input type="hidden" name="CareerId" value="@Model.CareerId" />
+    </div>
+    <div class="careerName">
+        <label>Career Name:</label>
+        <input type="text" name="CareerName" value="@Model.CareerTitle" />
+    </div>
+    <div class="careerEmail">
+        <label>Career Email:</label>
+        <input type="email" name="CareerEmail" value="@Model.CareerDesc" />
+    </div>
+    <div class="careerPhone">
+        <label>Career Phone:</label>
+        <input type="number" name="CareerPhone" value="@Model.CareerSalary" />
+    </div>
+    <div class="careerAddress">
+        <label>Career Address:</label>
+        <input type="text" name="CareerAddress" value="@Model.CareerLocation" />
+    </div>
+    <div class="updateDeatil">
+        <input type="submit" value="Update Career Details" />
+    </div>
+</form>
+
+<style>
+    .goBackList {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+
+    }
+
+    form.edit-career {
+        display: table-caption;
+        padding: 25px;
+        background-color: #eaeae8;
+    }
+
+    input[type="text"] {
+        height: 27px;
+        width: 179px;
+    }
+
+    input[type="submit"] {
+        margin-top: 14px;
+        width: 183px;
+        height: 33px;
+        background-color: #007bff;
+        color: #fff;
+    }
+</style>
+

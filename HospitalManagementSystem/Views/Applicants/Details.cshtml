@@ -1,0 +1,91 @@
+﻿@model HospitalManagementSystem.Models.ApplicantDto
+@{
+    ViewBag.Title = "View";
+}
+<div class="applicantDetail-container">
+    <a href="/Applicants/List" class="go-Back-List">Go back to list</a>
+    <br />
+    <a href="/Applicants/Edit/@Model.ApplicantId" class="update-Applicant">Update Applicant Details</a>
+    <div class="card-container">
+        <h2 class="applicantName">@Model.ApplicantName</h2>
+        <div class="applicantPhone">Phone No: @Model.ApplicantPhone</div>
+        <div class="applicantEmail">Email: @Model.ApplicantEmail</div>
+        <div class="applicantDetail">Cover Letter: @Model.ApplicantCoverLetter</div>
+        <div class="applicantAddress">@Model.ApplicantAddress</div>
+        <div class="applicantBranch">@Model.CareerTitle</div>
+        <br />
+    </div>
+    <a href="/Applicants/DeleteConfirm/@Model.ApplicantId" class="Delete">Delete</a>
+</div>
+<style>
+    /* Button Link */
+    .go-Back-List,
+    .update-Applicant,
+    .Delete {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    a.Delete {
+        float: right;
+        margin-top: 20px;
+    }
+    .applicantDetail-container {
+        padding: 57px;
+    }
+    .go-Back-List:hover,
+    .update-Applicant:hover{
+        background-color: #0056b3;
+        color:#fff;
+    }
+    .Delete:hover{
+        background-color: red;
+        color:black;
+    }
+
+    /* Card Container */
+    .card-container {
+        background-color: #eaeae8;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Heading */
+    .applicantName {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    /* Subheading */
+    .applicantPhone,
+    .applicantEmail,
+    .applicantDetail,
+    .applicantAddress,
+    .applicantBranch {
+        font-size: 16px;
+        color: #777;
+    }
+
+    .applicantDetails {
+        margin-bottom: 10px;
+    }
+
+    .applicantAddress,
+    .applicantBranch {
+        margin-top: 10px;
+    }
+
+
+
+</style>
+

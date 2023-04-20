@@ -41,6 +41,12 @@ namespace HospitalManagementSystem.Models
 
         public DbSet<Branch> Branches { get; set; }
 
+        public DbSet<Applicant> Applicants { get; set; }
+
+
+        public DbSet<Career> Careers { get; set; }
+
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
