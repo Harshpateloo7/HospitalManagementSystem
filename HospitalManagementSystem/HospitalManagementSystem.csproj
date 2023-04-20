@@ -216,6 +216,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\BlogDataController.cs" />
     <Compile Include="Controllers\BranchController.cs" />
     <Compile Include="Controllers\BrancheDataController.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
@@ -271,8 +273,13 @@
     <Compile Include="Migrations\202304190437468_columnChange.designer.cs">
       <DependentUpon>202304190437468_columnChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304192110454_Blog-fkdoctor.cs" />
+    <Compile Include="Migrations\202304192110454_Blog-fkdoctor.designer.cs">
+      <DependentUpon>202304192110454_Blog-fkdoctor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -284,6 +291,7 @@
     <Compile Include="Models\ViewModels\DoctorDetails.cs" />
     <Compile Include="Models\ViewModels\MedicineDetails.cs" />
     <Compile Include="Models\ViewModels\ParkingDetails.cs" />
+    <Compile Include="Models\ViewModels\UpdateBlog.cs" />
     <Compile Include="Models\ViewModels\UpdateDoctor.cs" />
     <Compile Include="Models\ViewModels\UpdatePatient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -377,6 +385,12 @@
     <Content Include="Views\Medicine\Error.cshtml" />
     <Content Include="Views\Medicine\List.cshtml" />
     <Content Include="Views\Medicine\New.cshtml" />
+    <Content Include="Views\Blog\List.cshtml" />
+    <Content Include="Views\Blog\New.cshtml" />
+    <Content Include="Views\Blog\Error.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
+    <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Blog\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -425,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304190437468_columnChange.resx">
       <DependentUpon>202304190437468_columnChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304192110454_Blog-fkdoctor.resx">
+      <DependentUpon>202304192110454_Blog-fkdoctor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
