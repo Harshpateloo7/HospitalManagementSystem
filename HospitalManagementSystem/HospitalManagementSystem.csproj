@@ -228,6 +228,8 @@
     <Compile Include="Controllers\ParkingDataController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\PatientDataController.cs" />
+    <Compile Include="Controllers\SpecialistController.cs" />
+    <Compile Include="Controllers\SpecialistDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,6 +273,14 @@
     <Compile Include="Migrations\202304190437468_columnChange.designer.cs">
       <DependentUpon>202304190437468_columnChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304192128438_specialist.cs" />
+    <Compile Include="Migrations\202304192128438_specialist.designer.cs">
+      <DependentUpon>202304192128438_specialist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304192135328_doctor-specialist.cs" />
+    <Compile Include="Migrations\202304192135328_doctor-specialist.designer.cs">
+      <DependentUpon>202304192135328_doctor-specialist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Branch.cs" />
@@ -280,12 +290,14 @@
     <Compile Include="Models\Medicine.cs" />
     <Compile Include="Models\Parking.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Specialist.cs" />
     <Compile Include="Models\ViewModels\DetailsBranch.cs" />
     <Compile Include="Models\ViewModels\DoctorDetails.cs" />
     <Compile Include="Models\ViewModels\MedicineDetails.cs" />
     <Compile Include="Models\ViewModels\ParkingDetails.cs" />
     <Compile Include="Models\ViewModels\UpdateDoctor.cs" />
     <Compile Include="Models\ViewModels\UpdatePatient.cs" />
+    <Compile Include="Models\ViewModels\UpdateSpecialist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -377,6 +389,12 @@
     <Content Include="Views\Medicine\Error.cshtml" />
     <Content Include="Views\Medicine\List.cshtml" />
     <Content Include="Views\Medicine\New.cshtml" />
+    <Content Include="Views\Specialist\List.cshtml" />
+    <Content Include="Views\Specialist\New.cshtml" />
+    <Content Include="Views\Specialist\Error.cshtml" />
+    <Content Include="Views\Specialist\Edit.cshtml" />
+    <Content Include="Views\Specialist\Details.cshtml" />
+    <Content Include="Views\Specialist\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -425,6 +443,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304190437468_columnChange.resx">
       <DependentUpon>202304190437468_columnChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304192128438_specialist.resx">
+      <DependentUpon>202304192128438_specialist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304192135328_doctor-specialist.resx">
+      <DependentUpon>202304192135328_doctor-specialist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
