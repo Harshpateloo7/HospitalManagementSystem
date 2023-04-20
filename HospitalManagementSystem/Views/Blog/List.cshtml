@@ -8,7 +8,7 @@
 <div class="Blog-grid-container">
     @foreach (var blog in Model)
     {
-        <div class="Blog-card">
+        <div class="Container">
             <h2 class="BlogName"><a href="/Blog/Details/@blog.BlogId">Title: @blog.Title</a></h2>
             <div class="BlogDate">Create Date: @blog.CreatedDate</div>
             <div class="BlogContent">Content: @blog.Content</div>
@@ -28,37 +28,37 @@
         transition: background-color 0.3s ease;
     }
 
-    .patientnew:hover {
+    .Blognew:hover {
         background-color: #0056b3;
         color:#ffff;
     }
 
-    .patient-grid-container {
+    .Blog-grid-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 15px;
     }
 
-    .patient-card {
+    .Container {
         background-color: #eaeae8;
         padding: 20px;
         border-radius: 5px;
         margin-bottom: 20px;
     }
 
-    .patient-card h2 {
+    .Container h2 {
         margin-top: 0;
     }
 
-    .patientName a {
+    .BlogName a {
         color: #007bff;
         text-decoration: none;
     }
 
-    .patientDate,
-    .patientContent,
-    .patientDetail,
-    .patientAddress,
+    .BlogDate,
+    .BlogContent,
+    .BlogDetail,
+    .BlogAddress,
     .Doctordetails {
         margin-bottom: 10px;
     }

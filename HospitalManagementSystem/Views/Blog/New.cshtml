@@ -5,7 +5,7 @@
 
     <h2>Create a new Blog</h2>
     <a href="/Blog/List" class="go-Back-List">Go back to list</a>
-    <div class="new-main-container">
+    <div class="MainContainer">
         <form action="/Blog/Create" method="POST">
             <div>
                 <label>Title:</label>
@@ -41,7 +41,7 @@
     h2 {
         text-align: center;
     }
-    .go-Back-List {
+    .GobackToList {
         display: inline-block;
         padding: 10px 20px;
         background-color: #007bff;
@@ -52,14 +52,14 @@
         transition: background-color 0.3s ease;
     }
 
-    a.go-Back-List {
+    a.GobackToList {
         text-align:center;
         margin-top: 10px;
         margin-bottom:10px;
     }
 
     /* Styles for the main container */
-    .new-main-container {
+    .MainContainer {
         max-width: 500px;
         margin: 0 auto;
         padding: 20px;
