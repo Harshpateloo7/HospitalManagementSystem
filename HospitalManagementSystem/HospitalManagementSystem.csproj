@@ -289,7 +289,7 @@
     <Compile Include="Migrations\202304200444583_Applicant-Career.cs" />
     <Compile Include="Migrations\202304200444583_Applicant-Career.designer.cs">
       <DependentUpon>202304200444583_Applicant-Career.cs</DependentUpon>
-
+	</Compile>
     <Compile Include="Migrations\202304192128438_specialist.cs" />
     <Compile Include="Migrations\202304192128438_specialist.designer.cs">
       <DependentUpon>202304192128438_specialist.cs</DependentUpon>
@@ -490,7 +490,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304200444583_Applicant-Career.resx">
       <DependentUpon>202304200444583_Applicant-Career.cs</DependentUpon>
-
+	</EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304192128438_specialist.resx">
       <DependentUpon>202304192128438_specialist.cs</DependentUpon>
     </EmbeddedResource>
