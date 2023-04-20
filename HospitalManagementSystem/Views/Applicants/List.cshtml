@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.ApplicantDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2 class="list-of-applicant">List of Applicant</h2>
+<a href="/Applicants/New" class="applicantnew">Add New Applicant</a>
+<div class="applicant-grid-container">
+    @foreach (var applicant in Model)
+    {
+        <div class="applicant-card">
+            <h2 class="applicantName"><a href="/Applicants/Details/@applicant.ApplicantId">Name: @applicant.ApplicantName</a></h2>
+            <div class="applicantPhone">Phone: @applicant.ApplicantPhone</div>
+            <div class="applicantEmail">Email: @applicant.ApplicantEmail</div>
+            <div class="applicantDetail">Cover Letter: @applicant.ApplicantCoverLetter</div>
+            <div class="applicantAddress">Address: @applicant.ApplicantAddress</div>
+            <div class="applicantBranch">Career Title: @applicant.CareerTitle</div>
+        </div>
+    }
+</div>
+<style>
+    .applicantnew {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom:10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .applicantnew:hover {
+        background-color: #0056b3;
+        color:#ffff;
+    }
+
+    .applicant-grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+    }
+
+    .applicant-card {
+        background-color: #eaeae8;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .applicant-card h2 {
+        margin-top: 0;
+    }
+
+    .applicantName a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .applicantPhone,
+    .applicantEmail,
+    .applicantDetail,
+    .applicantAddress,
+    .applicantBranch {
+        margin-bottom: 10px;
+    }
+
+
+
+</style>

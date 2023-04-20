@@ -1,0 +1,53 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.CareerDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Career</h2>
+<a href="/Career/New" class="add-newCareer">Add New Career</a>
+<div class="Career-container">
+    @foreach (var career in Model)
+    {   
+        <div class="careerdetail-container">
+            <h2><a href="/Career/Details/@career.CareerId" class="careerName">@career.CareerTitle</a></h2>
+            <div class="CareerDesc">Email: @career.CareerDesc</div>
+            <div class="CareerSalary">Phone: @career.CareerSalary</div>
+            <div class="CareerLocation">Address: @career.CareerLocation</div>
+        </div>
+    }
+</div>
+
+<style>
+    .Career-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+    }
+    .Careerdetail-container {
+        background-color: #eaeae8;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .Careerdetail-container h2 {
+        margin-top: 0;
+    }
+    .CareerName a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .CareerDesc, .CareerSalary, .CareerLocation {
+        margin-bottom: 10px;
+    }
+    .add-newCareer {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+</style>

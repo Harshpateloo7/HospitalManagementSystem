@@ -1,0 +1,77 @@
+﻿@model HospitalManagementSystem.Models.ViewModels.UpdateApplicant
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update a Applicant Details</h2>
+<a href="/Applicants/List" class="go-Back-List">Go back to list</a>
+<form action="/Applicants/Update/@Model.SelectedApplicant.ApplicantId" class="applicant-edit-from" method="POST">
+    <div class="applicantId">
+        <input type="hidden" name="ApplicantId" value="@Model.SelectedApplicant.ApplicantId"/>
+    </div>
+    <div class="applicantName">
+        <label>Name:</label>
+        <input type="text" name="ApplicantName" value="@Model.SelectedApplicant.ApplicantName"/>
+    </div>
+    <div class="applicantPhone">
+        <label>Phone:</label>
+        <input type="text" name="ApplicantPhone" value="@Model.SelectedApplicant.ApplicantPhone."/>
+    </div>
+    <div class="applicantEmail">
+        <label>Email:</label>
+        <input type="email" name="ApplicantEmail" value="@Model.SelectedApplicant.ApplicantEmail"/>
+    </div>
+    <div class="applicantDescription">
+        <label>Cover Letter:</label>
+        <input type="text" name="ApplicantCoverLetter" value="@Model.SelectedApplicant.ApplicantCoverLetter"/>
+    </div>
+    <div class="applicantAddress">
+        <label>Address:</label>
+        <input type="text" name="ApplicantAddress" value="@Model.SelectedApplicant.ApplicantAddress"/>
+    </div>
+    <div class="applicantSeletct">
+        <label>Career Id:</label>
+        <select name="CareerId">
+            @foreach (var career in Model.CareerOptions)
+            {
+                <option value="@career.CareerId"> @career.CareerId</option>
+
+            }
+        </select>
+
+    </div>
+    <div class="applicantSubmit">
+        <input type="submit" value="Update Applicant Details"/>
+    </div>
+</form>
+
+<style>
+    .go-Back-List {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    form.applicant-edit-from {
+        display: table-caption;
+        padding: 25px;
+        background-color: #eaeae8;
+    }
+    input[type="text"] {
+        height: 27px;
+        width: 179px;
+    }
+    input[type="submit"] {
+        margin-top: 14px;
+        width: 183px;
+        height: 33px;
+        background-color: #007bff;
+        color: #fff;
+    }
+
+</style>
+
