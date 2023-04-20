@@ -35,6 +35,9 @@ namespace HospitalManagementSystem.Models
         public DbSet<Blog> Blog { get; set; }
 
         public DbSet<Parking> Parkings { get; set; }
+        public DbSet<Specialist> Specialists { get; set; }
+
+
 
         public System.Data.Entity.DbSet<HospitalManagementSystem.Models.Medicine> Medicines { get; set; }
 
@@ -42,6 +45,12 @@ namespace HospitalManagementSystem.Models
         // Add an Branch entity into our system
 
         public DbSet<Branch> Branches { get; set; }
+
+        public DbSet<Applicant> Applicants { get; set; }
+
+
+        public DbSet<Career> Careers { get; set; }
+
 
         public static ApplicationDbContext Create()
         {
