@@ -512,7 +512,7 @@
 
     <EmbeddedResource Include="Migrations\202304192110454_Blog-fkdoctor.resx">
       <DependentUpon>202304192110454_Blog-fkdoctor.cs</DependentUpon>
-
+	</EmbeddedResource>
 
     <EmbeddedResource Include="Migrations\202304200438027_Career.resx">
       <DependentUpon>202304200438027_Career.cs</DependentUpon>
