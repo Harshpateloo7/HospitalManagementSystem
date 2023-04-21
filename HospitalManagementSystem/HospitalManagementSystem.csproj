@@ -292,6 +292,7 @@
     </Compile>
     <Compile Include="Migrations\202304201959314_Appointment-Patient.cs" />
     <Compile Include="Migrations\202304201959314_Appointment-Patient.designer.cs">
+	</Compile>
       <DependentUpon>202304201959314_Appointment-Patient.cs</DependentUpon>
     <Compile Include="Migrations\202304210120126_EmptyMigration.cs" />
     <Compile Include="Migrations\202304210120126_EmptyMigration.designer.cs">
