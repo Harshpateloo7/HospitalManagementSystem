@@ -216,13 +216,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogDataController.cs" />
-
     <Compile Include="Controllers\ApplicantDataController.cs" />
     <Compile Include="Controllers\ApplicantsController.cs" />
-
     <Compile Include="Controllers\BranchController.cs" />
     <Compile Include="Controllers\BrancheDataController.cs" />
     <Compile Include="Controllers\CareerController.cs" />
@@ -282,16 +279,17 @@
     <Compile Include="Migrations\202304190437468_columnChange.designer.cs">
       <DependentUpon>202304190437468_columnChange.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Migrations\202304192110454_Blog-fkdoctor.cs" />
     <Compile Include="Migrations\202304192110454_Blog-fkdoctor.designer.cs">
       <DependentUpon>202304192110454_Blog-fkdoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304210120126_EmptyMigration.cs" />
+    <Compile Include="Migrations\202304210120126_EmptyMigration.designer.cs">
+      <DependentUpon>202304210120126_EmptyMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Blog.cs" />
-
-
     <Compile Include="Migrations\202304200438027_Career.cs" />
     <Compile Include="Migrations\202304200438027_Career.designer.cs">
       <DependentUpon>202304200438027_Career.cs</DependentUpon>
@@ -303,7 +301,7 @@
     <Compile Include="Migrations\202304200444583_Applicant-Career.cs" />
     <Compile Include="Migrations\202304200444583_Applicant-Career.designer.cs">
       <DependentUpon>202304200444583_Applicant-Career.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="Migrations\202304192128438_specialist.cs" />
     <Compile Include="Migrations\202304192128438_specialist.designer.cs">
       <DependentUpon>202304192128438_specialist.cs</DependentUpon>
@@ -311,12 +309,10 @@
     <Compile Include="Migrations\202304192135328_doctor-specialist.cs" />
     <Compile Include="Migrations\202304192135328_doctor-specialist.designer.cs">
       <DependentUpon>202304192135328_doctor-specialist.cs</DependentUpon>
-
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Applicant.cs" />
-
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Career.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -331,11 +327,8 @@
     <Compile Include="Models\ViewModels\DoctorDetails.cs" />
     <Compile Include="Models\ViewModels\MedicineDetails.cs" />
     <Compile Include="Models\ViewModels\ParkingDetails.cs" />
-
     <Compile Include="Models\ViewModels\UpdateBlog.cs" />
-
     <Compile Include="Models\ViewModels\UpdateApplicant.cs" />
-
     <Compile Include="Models\ViewModels\UpdateDoctor.cs" />
     <Compile Include="Models\ViewModels\UpdatePatient.cs" />
     <Compile Include="Models\ViewModels\UpdateSpecialist.cs" />
@@ -430,15 +423,12 @@
     <Content Include="Views\Medicine\Error.cshtml" />
     <Content Include="Views\Medicine\List.cshtml" />
     <Content Include="Views\Medicine\New.cshtml" />
-
     <Content Include="Views\Blog\List.cshtml" />
     <Content Include="Views\Blog\New.cshtml" />
     <Content Include="Views\Blog\Error.cshtml" />
     <Content Include="Views\Blog\Details.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Blog\DeleteConfirm.cshtml" />
-
-
     <Content Include="Views\Applicants\List.cshtml" />
     <Content Include="Views\Applicants\New.cshtml" />
     <Content Include="Views\Applicants\Error.cshtml" />
@@ -451,15 +441,12 @@
     <Content Include="Views\Career\Details.cshtml" />
     <Content Include="Views\Career\Edit.cshtml" />
     <Content Include="Views\Career\DeleteConfirm.cshtml" />
-
     <Content Include="Views\Specialist\List.cshtml" />
     <Content Include="Views\Specialist\New.cshtml" />
     <Content Include="Views\Specialist\Error.cshtml" />
     <Content Include="Views\Specialist\Edit.cshtml" />
     <Content Include="Views\Specialist\Details.cshtml" />
     <Content Include="Views\Specialist\DeleteConfirm.cshtml" />
-
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -509,11 +496,9 @@
     <EmbeddedResource Include="Migrations\202304190437468_columnChange.resx">
       <DependentUpon>202304190437468_columnChange.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="Migrations\202304192110454_Blog-fkdoctor.resx">
       <DependentUpon>202304192110454_Blog-fkdoctor.cs</DependentUpon>
-	</EmbeddedResource>
-
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304200438027_Career.resx">
       <DependentUpon>202304200438027_Career.cs</DependentUpon>
     </EmbeddedResource>
@@ -522,14 +507,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304200444583_Applicant-Career.resx">
       <DependentUpon>202304200444583_Applicant-Career.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304192128438_specialist.resx">
       <DependentUpon>202304192128438_specialist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304192135328_doctor-specialist.resx">
       <DependentUpon>202304192135328_doctor-specialist.cs</DependentUpon>
-
-
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210120126_EmptyMigration.resx">
+      <DependentUpon>202304210120126_EmptyMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
