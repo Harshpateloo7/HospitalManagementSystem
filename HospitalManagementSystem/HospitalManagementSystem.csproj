@@ -285,6 +285,7 @@
     <Compile Include="Migrations\202304192110454_Blog-fkdoctor.designer.cs">
       <DependentUpon>202304192110454_Blog-fkdoctor.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Migrations\202304201952487_Appointment.cs" />
     <Compile Include="Migrations\202304201952487_Appointment.designer.cs">
       <DependentUpon>202304201952487_Appointment.cs</DependentUpon>
@@ -292,6 +293,9 @@
     <Compile Include="Migrations\202304201959314_Appointment-Patient.cs" />
     <Compile Include="Migrations\202304201959314_Appointment-Patient.designer.cs">
       <DependentUpon>202304201959314_Appointment-Patient.cs</DependentUpon>
+    <Compile Include="Migrations\202304210120126_EmptyMigration.cs" />
+    <Compile Include="Migrations\202304210120126_EmptyMigration.designer.cs">
+      <DependentUpon>202304210120126_EmptyMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -455,12 +459,14 @@
     <Content Include="Views\Specialist\Edit.cshtml" />
     <Content Include="Views\Specialist\Details.cshtml" />
     <Content Include="Views\Specialist\DeleteConfirm.cshtml" />
+
     <Content Include="Views\Appointment\New.cshtml" />
     <Content Include="Views\Appointment\List.cshtml" />
     <Content Include="Views\Appointment\Error.cshtml" />
     <Content Include="Views\Appointment\DeleteConfirm.cshtml" />
     <Content Include="Views\Appointment\Details.cshtml" />
     <Content Include="Views\Appointment\Edit.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -528,11 +534,15 @@
     <EmbeddedResource Include="Migrations\202304192135328_doctor-specialist.resx">
       <DependentUpon>202304192135328_doctor-specialist.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="Migrations\202304201952487_Appointment.resx">
       <DependentUpon>202304201952487_Appointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304201959314_Appointment-Patient.resx">
       <DependentUpon>202304201959314_Appointment-Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304210120126_EmptyMigration.resx">
+      <DependentUpon>202304210120126_EmptyMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
