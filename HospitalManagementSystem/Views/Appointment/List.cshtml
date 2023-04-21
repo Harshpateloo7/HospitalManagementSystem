@@ -1,0 +1,15 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.AppointmentDto>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<div><a href="/Appointment/New">New Appointment</a></div>
+
+@foreach (var Appointment in Model)
+{
+    <h2><a href="/Appointment/Details/@Appointment.AppointmentId">@Appointment.AppointmentDateAndTime</a></h2>
+
+}
+

@@ -1,0 +1,61 @@
+﻿@model HospitalManagementSystem.Models.ViewModels.UpdateAppointment
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update a Appointment Details</h2>
+<a href="/Appointment/List" class="go-Back-List">Go back to list</a>
+<form action="/Appointment/Update/@Model.SelectedAppointment.AppointmentId" class="Appointment-edit-from" method="POST">
+    <div class="AppointmentId">
+        <input type="hidden" name="AppointmentId" value="@Model.SelectedAppointment.AppointmentId"/>
+    </div>
+    <div class="AppointmentName">
+            <label>Appointment Name:</label>
+            <input type="datetime-local" name="AppointmentDateANdTime" value="@Model.SelectedAppointment.AppointmentDateAndTime" />
+    </div>
+    <div class="AppointmentSeletct">
+        <label>Patient Id:</label>
+        <select name="PatientId">
+            @foreach (var Patient in Model.PatientOptions)
+            {
+                <option value="@Patient.PatientId"> @Patient.PatientName</option>
+
+            }
+        </select>
+
+    </div>
+    <div class="AppointmentSubmit">
+        <input type="submit" value="Update Appointment Details"/>
+    </div>
+</form>
+
+<style>
+    .go-Back-List {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    form.Appointment-edit-from {
+        display: table-caption;
+        padding: 25px;
+        background-color: #eaeae8;
+    }
+    input[type="text"] {
+        height: 27px;
+        width: 179px;
+    }
+    input[type="submit"] {
+        margin-top: 14px;
+        width: 183px;
+        height: 33px;
+        background-color: #007bff;
+        color: #fff;
+    }
+
+</style>
+
