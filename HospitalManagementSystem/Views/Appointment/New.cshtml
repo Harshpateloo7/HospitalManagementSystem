@@ -1,0 +1,101 @@
+﻿@model IEnumerable<HospitalManagementSystem.Models.PatientDto>
+@{
+    ViewBag.Title = "Create";
+}
+    <h2>Create a new Appointment</h2>
+    <a href="/Appointment/List" class="go-Back-List">Go back to list</a>
+    <div class="new-main-container">
+        <form action="/Appointment/Create" method="POST">
+            <div>
+                <label>Appointment Name:</label>
+                <input type="datetime-local" name="AppointmentDateANdTime" />
+            </div>
+            <div>
+                <label>Patientt Name:</label>
+                <select name="PatientId">
+                    @foreach (var Patient in Model)
+                    {
+                        <option value="@Patient.PatientId"> @Patient.PatientName</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Add a new Appointment" />
+            </div>
+
+        </form>
+    </div>
+
+<style>
+
+    h2 {
+        text-align: center;
+    }
+    .go-Back-List {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        margin-bottom: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    a.go-Back-List {
+        text-align:center;
+        margin-top: 10px;
+        margin-bottom:10px;
+    }
+
+    /* Styles for the main container */
+    .new-main-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #eaeae8;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styles for form elements */
+    form {
+        padding: 81px;
+    }
+    form div {
+        margin-bottom: 10px;
+    }
+
+    /* Styles for labels */
+    form label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* Styles for input fields */
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="email"],
+    form select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    /* Styles for submit button */
+    form input[type="submit"] {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+</style>
+
