@@ -29,7 +29,10 @@ namespace HospitalManagementSystem.Models
         //Add  an Patient entity into our system
         public DbSet<Patient> Patients { get; set; }
 
-        public DbSet<Appointment> Appointments { get; set; }
+
+
+        public DbSet<Appointments> Appointmentss { get; set; }
+
 
 
         public DbSet<Doctor> Doctors { get; set; }

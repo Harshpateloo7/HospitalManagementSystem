@@ -20,6 +20,9 @@ namespace HospitalManagementSystem.Models
         public virtual Parking Parking { get; set; }
 
         public ICollection<Medicine> Medicines { get; set; }
+
+        public ICollection<Appointments> Appointments { get; set; }
+
     }
 
     public class DoctorDto

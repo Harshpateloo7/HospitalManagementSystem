@@ -93,6 +93,25 @@ namespace HospitalManagementSystem.Controllers
             return Ok();
         }
 
+        // GET: api/MedicineData/ListOfAppointmentsByDoctor/2
+        [System.Web.Http.HttpGet]
+        public IEnumerable<AppointmentDto> ListOfAppointmentsByDoctor(int id)
+        {
+            List<Appointments> appointments = db.Appointmentss.Where(
+                    k => k.Doctor.Any(
+                        a => a.DoctorId == id)
+                    ).ToList();
+            List<AppointmentDto> AppointmentDtos = new List<AppointmentDto>();
+
+            appointments.ForEach(a => AppointmentDtos.Add(new AppointmentDto()
+            {
+                AppointmentId = a.AppointmentId,
+                AppointmentDateAndTime = a.AppointmentDateAndTime,
+            }));
+
+            return AppointmentDtos;
+        }
+
         [HttpPost]
         [Route("api/Doctor/UnAssociateDoctorWithMedicine/{doctorid}/{medicineid}")]
         public IHttpActionResult UnAssociateDoctorWithMedicine(int doctorid, int medicineid)
