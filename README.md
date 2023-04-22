@@ -1,7 +1,7 @@
 # HospitalManagementSystem
 # Team: 
 - Harshadkumar Patel: Patient, and Branch
-- Jigar Mehta:
-- Nency Modi:
+- Jigar Mehta:Specialist,Appointment
+- Nency Modi:Doctor,Blog
 - Darshan Varma: Prescriptions and Parking entities.
-- Azmat Pathan:
+- Azmat Pathan:Applicant,career
